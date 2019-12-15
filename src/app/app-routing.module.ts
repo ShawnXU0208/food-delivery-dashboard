@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ModuleWithProviders } from "@angular/core";
+
+import { DashboardBodyComponent } from './dashboard-body/dashboard-body.component';
+import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+  {path: 'dashboard', component: DashboardListComponent},
+  {path: 'dashboard/:id', component: DashboardBodyComponent, outlet: "appRight"}
+];
+
+export const routingModule: ModuleWithProviders = RouterModule.forRoot(routes);
